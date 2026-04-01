@@ -1,0 +1,10 @@
+<!-- app.component.html -->
+<form [formGroup]="loginForm" (ngSubmit)="enviar()">
+  <input type="email" formControlName="email" placeholder="E-mail" />
+  <input type="password" formControlName="senha" placeholder="Senha" />
+  <button type="submit">Entrar</button>
+</form>
+
+<p *ngIf="loginForm.get('email')?.invalid">
+  E-mail inválido
+</p>
