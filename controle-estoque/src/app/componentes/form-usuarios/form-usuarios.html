@@ -1,7 +1,11 @@
 <!-- app.component.html -->
 <form [formGroup]="loginForm" (ngSubmit)="enviar()">
   <input type="email" formControlName="email" placeholder="E-mail" />
-  <input type="password" formControlName="senha" placeholder="Senha" />
+  <input type="password" formControlName="passwordHash" placeholder="Senha" />
+  <input type="text" formControlName="roles" placeholder="Funções" />
+  <input type="text" formControlName="firstName" placeholder="Nome" />
+  <input type="text" formControlName="lastName" placeholder="Sobrenome" />
+  <input type="text" formControlName="telephone" placeholder="Telefone" />
   <button type="submit">Entrar</button>
 </form>
 

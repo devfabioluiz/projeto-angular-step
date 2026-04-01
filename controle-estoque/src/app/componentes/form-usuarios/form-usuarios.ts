@@ -10,7 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormUsuarios {
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    senha: new FormControl('', Validators.required)
+    passwordHash: new FormControl('', Validators.required),
+    roles: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    telephone: new FormControl('', Validators.required)
   });
 
   enviar() {
