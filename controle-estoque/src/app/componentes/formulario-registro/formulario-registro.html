@@ -1,5 +1,5 @@
 <!-- app.component.html -->
-<form [formGroup]="registroForm" (ngSubmit)="enviar()">
+<form [formGroup]="registroForm" (ngSubmit)="registrar()">
   <input type="email" formControlName="email" placeholder="E-mail" />
   <input type="password" formControlName="passwordHash" placeholder="Senha" />
  
@@ -10,7 +10,7 @@
     <option value="GER">Gerente</option>
   </select>
  
-  <input type="text" formControlName="firstName" placeholder="Nome" />
+  <input type="text" formControlName="name" placeholder="Nome" />
   <button type="submit">Entrar</button>
 </form>
  

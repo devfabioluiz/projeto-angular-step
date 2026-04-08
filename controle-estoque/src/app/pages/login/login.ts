@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { httpResource } from '@angular/core/rxjs-interop';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Auth } from '../../servicos/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,23 @@ import { httpResource } from '@angular/core/rxjs-interop';
   styleUrls: ['./login.css'], // corrigido
 })
 export class Login {
-  public apiUrl = 'https://projeto-node-step-git-main-fabios-projects-d2648344.vercel.app/api/auth';
+  constructor(private auth: Auth, private router: Router) {}
 
-  usersResource = httpResource(() => `${this.apiUrl}/users`);
+  loginForm = new FormGroup({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+  });
+
+  login() {
+    this.auth.login(this.loginForm.value).subscribe({
+      next: (response: any) => {
+        console.log('Usuário logado com sucesso!', response);
+        this.router.navigate(['/dashboard'])
+      },
+      error: (error: any) => {
+        console.error('Erro ao fazer login:', error);
+      }
+    });
+  }
+
 }

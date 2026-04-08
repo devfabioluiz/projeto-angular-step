@@ -1,1 +1,10 @@
-<p>login works!</p>
+<!-- app.component.html -->
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <input type="email" formControlName="email" placeholder="E-mail" />
+  <input type="password" formControlName="password" placeholder="Senha" />
+  <button type="submit">Entrar</button>
+</form>
+ 
+<p *ngIf="loginForm.get('email')?.invalid">
+  E-mail inválido
+</p>
