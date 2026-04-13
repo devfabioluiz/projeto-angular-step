@@ -9,7 +9,6 @@ import { FormularioRegistro } from './componentes/formulario-registro/formulario
 import { Login } from './pages/login/login';
 import { PainelAdmin } from './pages/painel-admin/painel-admin';
 import { Dashboard } from './pages/dashboard/dashboard';
-
 @NgModule({
   declarations: [App, FormularioRegistro, PainelAdmin, Login, Dashboard],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
