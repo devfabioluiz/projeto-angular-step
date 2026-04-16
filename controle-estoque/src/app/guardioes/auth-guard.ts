@@ -6,7 +6,6 @@ import { Auth } from '../servicos/auth';
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
   constructor(
-    private auth: Auth,
     private router: Router,
   ) {}
 

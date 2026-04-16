@@ -4,12 +4,13 @@ import { Login } from './pages/login/login';
 import { PainelAdmin } from './pages/painel-admin/painel-admin';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { AuthGuard } from './guardioes/auth-guard';
+import { perfilAcessoGuard } from './guardioes/perfil-acesso-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'dashboard', component: Dashboard, canActivate: [AuthGuard] },
-  { path: 'painel-admin', component: PainelAdmin, canActivate: [AuthGuard] },
+  { path: 'painel-admin', component: PainelAdmin, canActivate: [AuthGuard, perfilAcessoGuard] },
 ];
 
 @NgModule({

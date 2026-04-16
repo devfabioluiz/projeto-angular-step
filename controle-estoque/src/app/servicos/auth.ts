@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Auth {
-  apiUrl = 'https://projeto-node-step-git-main-fabios-projects-d2648344.vercel.app/api/auth';
-  apiKey = 'Step@2025';
+  apiUrl: string = 'https://projeto-node-step-git-main-fabios-projects-d2648344.vercel.app/api/auth';
+  apiKey: string = 'Step@2025';
   headers = new HttpHeaders({
     'x-api-key': this.apiKey,
   });
@@ -22,7 +22,11 @@ export class Auth {
   }
 
   // essa funcao nesse serviço serve para pegar os dados do usuario logado na API (back end) e verificar se ele está logado ou não.
-  me(token: any) {
-    return this.http.post(`${this.apiUrl}/me`, token, { headers: this.headers });
+  verificarUsuario(token: any){
+    const headerComToken = new HttpHeaders({
+      'x-api-key': this.apiKey,
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.get(`${this.apiUrl}/me`, { headers:  headerComToken});
   }
 }
