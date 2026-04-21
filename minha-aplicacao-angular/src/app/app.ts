@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { Exemplo } from './exemplo/exemplo';
+import { Aula3 } from './aula3/aula3';
 
 @Component({
   selector: 'app-root',
-  imports: [Exemplo],
+  imports: [Aula3],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('minha-aplicacao-angular');
+  protected readonly title = signal('controle-estoque');
 }
