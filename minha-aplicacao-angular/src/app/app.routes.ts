@@ -23,7 +23,12 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'componente-pai',
+    loadComponent: () =>
+      import('./pages/componente-pai/componente-pai').then((m) => m.ComponentePai),
+  },
+  {
     path: '**',
-    redirectTo: 'produtos', // fallback caso rota não exista
+    redirectTo: 'produtos',
   },
 ];
