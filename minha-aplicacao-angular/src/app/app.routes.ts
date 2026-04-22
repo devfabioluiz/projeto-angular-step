@@ -28,6 +28,11 @@ export const routes: Routes = [
       import('./pages/componente-pai/componente-pai').then((m) => m.ComponentePai),
   },
   {
+    path: 'cadastro-usuario',
+    loadComponent: () =>
+      import('./pages/cadastro-usuario/cadastro-usuario').then((m) => m.CadastroUsuario),
+  },
+  {
     path: '**',
     redirectTo: 'produtos',
   },
