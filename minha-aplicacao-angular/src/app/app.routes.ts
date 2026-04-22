@@ -1,8 +1,29 @@
 import { Routes } from '@angular/router';
-import { ListaProdutos } from './pages/lista-produtos/lista-produtos';
-import { DetalheProduto } from './pages/detalhe-produto/detalhe-produto';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-  { path: '', component: ListaProdutos },
-  { path: 'produto/:id', component: DetalheProduto },
+  {
+    path: '',
+    redirectTo: 'produtos',
+    pathMatch: 'full',
+  },
+  {
+    path: 'produtos',
+    loadComponent: () =>
+      import('./pages/lista-produtos/lista-produtos').then((m) => m.ListaProdutos),
+  },
+  {
+    path: 'produto/:id',
+    loadComponent: () =>
+      import('./pages/detalhe-produto/detalhe-produto').then((m) => m.DetalheProduto),
+  },
+  {
+    path: 'painel-adm',
+    loadComponent: () => import('./painel-adm/painel-adm').then((m) => m.PainelAdm),
+    canActivate: [authGuard],
+  },
+  {
+    path: '**',
+    redirectTo: 'produtos', // fallback caso rota não exista
+  },
 ];
