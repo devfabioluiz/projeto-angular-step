@@ -1,0 +1,6 @@
+<p>{{ mensagem }}</p>
+
+<app-produto-filho
+  [produto]="produto"
+  (produtoSelecionado)="receberProdutoSelecionado($event)"
+></app-produto-filho>

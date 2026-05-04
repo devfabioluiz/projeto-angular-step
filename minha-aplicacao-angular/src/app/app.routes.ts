@@ -28,6 +28,10 @@ export const routes: Routes = [
       import('./pages/componente-pai/componente-pai').then((m) => m.ComponentePai),
   },
   {
+    path: 'produto-pai',
+    loadComponent: () => import('./produto-pai/produto-pai').then((m) => m.ProdutoPai),
+  },
+  {
     path: '**',
     redirectTo: 'produtos',
   },
